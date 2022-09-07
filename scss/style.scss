@@ -1,0 +1,255 @@
+@import "../libs/bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: 'Acumin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Acumin'), url('../fonts/Acumin-Variable-Concept.ttf') format('ttf');
+}
+
+body, html {
+  font-family: 'Acumin', sans-serif;
+}
+
+.f-didot {
+  font-family: 'didot-bold', sans-serif;
+}
+
+.f-ab {
+  font-family: 'sofa-ab-roman', sans-serif;
+}
+
+h4 {
+  @extend .f-didot;
+}
+
+h3 {
+  font-size: 4em;
+  @extend .f-ab;
+}
+
+h2 {
+  @extend .f-didot;
+  font-size: 7em;
+}
+
+@include media-breakpoint-down("lg") {
+  h3 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 3em;
+  }
+}
+
+#header {
+  padding-top: 100px;
+  @include media-breakpoint-down("lg") {
+    padding-top: 50px;
+  }
+  @include media-breakpoint-down("md") {
+    padding-top: 30px;
+  }
+}
+
+.cs-p-1 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @include media-breakpoint-down("lg") {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.discord-icon {
+  width: 200px;
+  max-width: 100%;
+}
+
+.banner {
+  min-height: 100vh;
+  position: relative;
+  @include media-breakpoint-down("lg") {
+    min-height: 400px;
+  }
+  @include media-breakpoint-down("md") {
+    min-height: 220px;
+  }
+}
+
+.btn-lg-1 {
+  min-width: 200px;
+  padding: 5px 30px;
+  text-align: center;
+  font-size: 2em;
+  border-radius: unset;
+  @extend .f-didot;
+  @include media-breakpoint-down("lg") {
+    font-size: 1.25em;
+  }
+}
+
+.btn-black {
+  background-color: #000;
+  color: #fff;
+  @extend .f-didot;
+}
+
+.teams {
+  .team-member {
+    text-align: center;
+    margin: 30px 0;
+
+    .team-member-name {
+      font-size: 2em;
+      margin-top: 15px;
+    }
+
+    .team-member-thumbnail {
+      margin: auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: #ffffff;
+
+      img {
+        object-fit: scale-down;
+        width: 100%;
+        height: 100%;
+      }
+
+      @include media-breakpoint-down("lg") {
+        width: 200px;
+        height: 200px;
+      }
+
+      @include media-breakpoint-down("md") {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  }
+}
+
+.topics {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  .topic {
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    font-size: 2em;
+    background-color: #000000;
+    margin-bottom: 30px;
+    color: #ffffff;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      box-shadow: -5px 8px 0px 2px #604f4f;
+    }
+  }
+
+  @include media-breakpoint-down("lg") {
+    .topic {
+      font-size: 1.25em;
+    }
+  }
+}
+
+#footer {
+  height: 100px;
+  background-color: #000000;
+}
+
+.phases {
+  padding-bottom: 150px;
+  z-index: 2;
+  position: relative;
+
+  .phase {
+    margin: auto auto 200px;
+    width: 350px;
+    max-width: 100%;
+
+    .phase-thumb {
+      width: 250px;
+      height: 250px;
+      object-fit: scale-down;
+      background-color: #fff;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .phase-name {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+  }
+
+  @include media-breakpoint-up("lg") {
+    & > div:nth-child(even) {
+      transform: translateY(40%);
+    }
+  }
+  @include media-breakpoint-down("lg") {
+    padding-bottom: 30px;
+    .phase {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 30px;
+      .phase-thumb {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+}
+
+@keyframes StrokeLine {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -200;
+  }
+}
+
+.lines-anim {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.section-3 {
+  .lines {
+    position: absolute;
+    top: -12%;
+    left: 50%;
+    width: 54%;
+    z-index: 1;
+    pointer-events: none;
+    height: 105%;
+    transform: translateX(-50%);
+    @media screen and ( max-width: 1367px ){
+      top: -16%;
+    }
+    @include media-breakpoint-down("lg") {
+      display: none;
+    }
+    path {
+      fill: none;
+      stroke-miterlimit: 20;
+      stroke-dasharray: 10;
+      stroke-dashoffset: 0;
+      animation: StrokeLine 3s infinite linear;
+    }
+  }
+}
