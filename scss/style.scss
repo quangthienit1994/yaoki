@@ -12,7 +12,12 @@ body, html {
 }
 
 .f-didot {
-  font-family: 'didot-bold', sans-serif;
+  font-family: 'didot-bold';
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .f-ab {
@@ -56,6 +61,10 @@ h2 {
 .cs-p-1 {
   padding-top: 100px;
   padding-bottom: 100px;
+  @media screen and (max-width: 1440px) {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
   @include media-breakpoint-down("lg") {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -72,13 +81,31 @@ h2 {
 }
 
 .banner {
-  min-height: 100vh;
-  position: relative;
+  font-size: 2em;
   @include media-breakpoint-down("lg") {
-    min-height: 400px;
+    font-size: 1.25em;
   }
-  @include media-breakpoint-down("md") {
-    min-height: 220px;
+  @include media-breakpoint-up("md") {
+    .banner-container {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+}
+
+.btn-img {
+  background-color: transparent;
+  border: unset;
+  transition: all .3s ease-in-out;
+  display: inline-block;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &:hover {
+    transform: scale(1.2);
   }
 }
 
@@ -144,12 +171,15 @@ h2 {
   .topic {
     text-decoration: none;
     display: block;
-    padding: 10px 20px;
     font-size: 2em;
     background-color: #000000;
     margin-bottom: 30px;
     color: #ffffff;
     transition: all .3s ease-in-out;
+
+    img {
+      width: 100%;
+    }
 
     &:hover {
       box-shadow: -5px 8px 0px 2px #604f4f;
@@ -205,9 +235,16 @@ h2 {
       max-width: 100%;
       width: 100%;
       margin-bottom: 30px;
+
       .phase-thumb {
         width: 150px;
         height: 150px;
+      }
+
+      .phase-name {
+        img {
+          max-width: 30%;
+        }
       }
     }
   }
@@ -238,18 +275,56 @@ h2 {
     pointer-events: none;
     height: 105%;
     transform: translateX(-50%);
-    @media screen and ( max-width: 1367px ){
+    @media screen and (max-width: 1367px) {
       top: -16%;
     }
     @include media-breakpoint-down("lg") {
       display: none;
     }
+
     path {
       fill: none;
       stroke-miterlimit: 20;
       stroke-dasharray: 10;
       stroke-dashoffset: 0;
       animation: StrokeLine 3s infinite linear;
+    }
+  }
+}
+
+@include media-breakpoint-down("md") {
+  .section-1 {
+    .title img {
+      max-width: 75%;
+    }
+    .content {
+      padding-top: 15px;
+    }
+  }
+  .section-2 {
+    .title img {
+      max-width: 80%;
+    }
+  }
+  .section-3 {
+    .title img {
+      max-width: 60%;
+    }
+  }
+  .section-6 .title img {
+    max-width: 40%;
+  }
+  .section-4 .title img {
+    max-width: 65%;
+  }
+  .btn-img img {
+    width: 80%;
+  }
+  .section-5 {
+    .yaoki-icon {
+      img {
+        max-width: 50%;
+      }
     }
   }
 }
